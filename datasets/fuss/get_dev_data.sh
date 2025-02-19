@@ -33,7 +33,8 @@ SS_REVERB_DIR=${DEV_DATA_DIR}/ssdata_reverb
 mkdir -p ${DOWNLOAD_DIR}
 mkdir -p ${DEV_DATA_DIR}
 if [ ! -s ${DOWNLOAD_DIR}/ssdata.tar.gz ]; then
-  curl --output ${DOWNLOAD_DIR}/ssdata.tar.gz ${SSDATA_URL}
+  #curl --output ${DOWNLOAD_DIR}/ssdata.tar.gz ${SSDATA_URL}
+  wget ${SSDATA_URL} -O ${DOWNLOAD_DIR}/ssdata.tar.gz
 else
   echo "${DOWNLOAD_DIR}/ssdata.tar.gz exists, skipping download."
 fi
@@ -49,7 +50,8 @@ fi
 # and then train, validation and eval subdirectories and
 # under those the same structure as ssdata.
 if [ ! -s ${DOWNLOAD_DIR}/ssdata_reverb.tar.gz ]; then
-  curl --output ${DOWNLOAD_DIR}/ssdata_reverb.tar.gz ${SSDATA_REVERB_URL}
+  #curl --output ${DOWNLOAD_DIR}/ssdata_reverb.tar.gz ${SSDATA_REVERB_URL}
+  wget ${SSDATA_REVERB_URL} -O ${DOWNLOAD_DIR}/ssdata_reverb.tar.gz
 else
   echo "${DOWNLOAD_DIR}/ssdata_reverb.tar.gz exists, skipping download."
 fi
